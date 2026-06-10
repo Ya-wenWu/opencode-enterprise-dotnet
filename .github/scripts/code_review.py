@@ -50,8 +50,8 @@ REVIEW_PROMPT = """You are a Staff Software Engineer conducting a code review at
 def main():
     api_key = os.environ.get("GOOGLE_API_KEY")
     if not api_key:
-        print("❌ GOOGLE_API_KEY not set", file=sys.stderr)
-        sys.exit(1)
+        print("⚠️ GOOGLE_API_KEY not available (fork PR from external contributor). Skipping AI review.")
+        return
 
     if len(sys.argv) < 2:
         print("Usage: code_review.py <diff_file> [title]", file=sys.stderr)
@@ -89,6 +89,9 @@ def main():
         json=payload,
         timeout=120,
     )
+    if resp.status_code == 429:
+        print("⚠️ Gemini API rate limit exceeded. Skipping AI review this time.")
+        return
     resp.raise_for_status()
     data = resp.json()
 

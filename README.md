@@ -29,10 +29,19 @@ dotnet test
 ## Project Structure
 
 ```
-├── src/          # Source code
-├── tests/        # Tests
-├── specs/        # SDD specs
-└── .github/      # CI/CD + policies
+├── src/
+│   └── MyApp/
+│       ├── MyApp.csproj       # Executable project
+│       ├── Program.cs          # Entry point
+│       └── Services/
+│           └── GreetingService.cs
+├── tests/
+│   └── MyApp.Tests/
+│       ├── MyApp.Tests.csproj  # xUnit test project
+│       └── GreetingServiceTests.cs
+├── specs/          # SDD specs
+├── MyApp.sln
+└── .github/        # CI/CD + policies
 ```
 
 ## License

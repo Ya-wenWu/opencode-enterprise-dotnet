@@ -1,5 +1,0 @@
-<Project>
-  <PropertyGroup Condition="$(IsTestProject) == 'true'">
-    <NoWarn>$(NoWarn);CA1707;CA2007;CA2000</NoWarn>
-  </PropertyGroup>
-</Project>

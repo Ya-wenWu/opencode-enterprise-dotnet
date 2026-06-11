@@ -49,7 +49,7 @@ jobs:
           fail-on-severity: high
 
   build:
-    needs: dependency-review
+    needs: security
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

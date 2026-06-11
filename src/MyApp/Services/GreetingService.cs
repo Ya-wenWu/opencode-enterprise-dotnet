@@ -1,6 +1,6 @@
 namespace MyApp.Services;
 
-public static class GreetingService
+internal static class GreetingService
 {
     public static string GetGreeting(string name)
     {
